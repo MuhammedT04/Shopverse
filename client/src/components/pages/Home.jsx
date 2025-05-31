@@ -8,8 +8,6 @@ export default function Home() {
 
     const { user } = useSelector((state) => state.user);
 
-    console.log(user.id)
-
 
   return (
     <div className="min-h-screen bg-[#f8f5f2]">

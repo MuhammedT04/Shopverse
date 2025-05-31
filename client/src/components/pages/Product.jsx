@@ -3,7 +3,7 @@ import { useState } from "react";
 import api from "../../api/axios";
 import { useSelector } from "react-redux";
 import { loadStripe } from "@stripe/stripe-js";
-const STRIPE = import.meta.env.STRIPE;
+const STRIPE_KEY = import.meta.env.STRIPE;
 export default function Product() {
   const [products, setProducts] = useState([]);
 
@@ -23,7 +23,7 @@ export default function Product() {
 
   const makePayment = async ({ product }) => {
     try {
-      const stripe = await loadStripe(STRIPE);
+      const stripe = await loadStripe("pk_test_51RUVPBFVNkuglv91SwZQQdLVwoYSXTLq0xO2ahr95PvcCGCDVrdJqZ7qp55WTdOzTPYYNIGvl9yIZoCdLJxeHTkY00VAjVG9m2");
 
       const res = await api.post("/api/user/payment", {
         userId: user.id,
